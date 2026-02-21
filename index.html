@@ -397,12 +397,12 @@
         }
 
         .invitada-avatar {
-            width: 120px;
-            height: 120px;
+            width: 100%;
+            aspect-ratio: 16/9;
             margin: 0 auto 1rem;
-            border-radius: 50%;
+            border-radius: 8px;
             object-fit: cover;
-            border: 2px solid var(--border);
+            border: 1px solid var(--border);
             transition: all 0.3s ease;
             background: linear-gradient(135deg, var(--rosa), var(--gold));
         }
@@ -586,8 +586,7 @@
             }
 
             .invitada-avatar {
-                width: 100px;
-                height: 100px;
+                width: 100%;
             }
 
             .clientes-logos {
@@ -732,6 +731,7 @@
             <button class="filtro-btn" onclick="filtrar('Energía')">Energía</button>
             <button class="filtro-btn" onclick="filtrar('FinTech')">FinTech</button>
             <button class="filtro-btn" onclick="filtrar('PetTech')">PetTech</button>
+            <button class="filtro-btn" onclick="filtrar('Web3')">Web3</button>
         </div>
         <div class="invitadas-grid">
             <a class="invitada-card" href="https://youtu.be/RuDXpaAH3iQ" target="_blank" rel="noopener" data-sector="Neurotech">
@@ -872,11 +872,11 @@
                 <p>The Smart Lollipop</p>
                 <span class="vertical">HealthTech</span>
             </a>
-            <a class="invitada-card" href="https://youtu.be/10MRThcKWbQ" target="_blank" rel="noopener" data-sector="Business">
+            <a class="invitada-card" href="https://youtu.be/10MRThcKWbQ" target="_blank" rel="noopener" data-sector="Web3">
                 <img class="invitada-avatar" src="https://i.ytimg.com/vi/10MRThcKWbQ/hqdefault.jpg" alt="Marta Valles" loading="lazy">
                 <h3>Marta Valles</h3>
                 <p>Web3 / Blockchain</p>
-                <span class="vertical">Business</span>
+                <span class="vertical">Web3</span>
             </a>
             <a class="invitada-card" href="https://youtu.be/sMG6aFMgoo8" target="_blank" rel="noopener" data-sector="IA">
                 <img class="invitada-avatar" src="https://i.ytimg.com/vi/sMG6aFMgoo8/hqdefault.jpg" alt="Micaela Mantegna" loading="lazy">
