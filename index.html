@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Que ninguna mujer brillante en tech pase desapercibida nunca más. La plataforma donde las marcas conectan con la vanguardia tech.">
+    <meta name="keywords" content="mujeres tech, innovación, patrocinio tech, branded content, healthtech, neurotech, quantum">
+    <title>Rivela - Tu marca delante de quien decide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #111111;
+            --bg-surface: #1a1a1a;
+            --rosa: #FF1493;
+            --gold: #FFD700;
+            --text: #f5f5f5;
+            --text-muted: #999999;
+            --border: #333333;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(5rem, 15vw, 10rem);
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--rosa), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .hero h1::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: var(--rosa);
+        }
+
+        .hero-mission {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            color: var(--text);
+            font-weight: 700;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-voice {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-buyer {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--rosa);
+            font-weight: 600;
+            max-width: 650px;
+            margin: 0 auto 3rem;
+        }
+
+        .cta {
+            display: inline-block;
+            background: var(--rosa);
+            color: var(--text);
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .cta:hover {
+            background: var(--gold);
+            color: var(--bg);
+            transform: translateY(-2px);
+        }
+
+        /* Números */
+        .numeros {
+            background: var(--bg-card);
+            padding: 4rem 1.5rem;
+        }
+
+        .numeros-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .numeros-header h2 {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 900;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .numeros-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .numero-item strong {
+            display: block;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .numero-item span {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Qué ofrecemos */
+        .ofrecemos {
+            padding: 5rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .ofrecemos h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .ofrecemos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .oferta-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .oferta-card:hover {
+            border-color: var(--rosa);
+            box-shadow: 0 0 20px rgba(255, 20, 147, 0.2);
+        }
+
+        .oferta-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .oferta-card h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--rosa);
+        }
+
+        .oferta-card p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .ofrecemos-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Caso real */
+        .caso-real {
+            padding: 5rem 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .caso-real h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 900;
+            margin-bottom: 0.8rem;
+        }
+
+        .caso-sub {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .caso-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .caso-col {
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            text-align: left;
+        }
+
+        .caso-col h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+        }
+
+        .caso-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .caso-col li {
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-muted);
+        }
+
+        .caso-col li strong {
+            color: var(--text);
+            font-weight: 800;
+        }
+
+        .caso-ads {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+        }
+
+        .caso-ads h3 {
+            color: var(--text-muted);
+        }
+
+        .caso-rivela {
+            background: linear-gradient(135deg, #1a0a1a, #1a0520);
+            border: 1px solid var(--rosa);
+            box-shadow: 0 0 30px rgba(255, 20, 147, 0.15);
+        }
+
+        .caso-rivela h3 {
+            color: var(--rosa);
+        }
+
+        .caso-rivela li strong {
+            color: var(--gold);
+        }
+
+        .caso-roas {
+            margin-top: 1.5rem;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--gold);
+            text-align: center;
+        }
+
+        .caso-nota {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .caso-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Invitadas */
+        .invitadas {
+            padding: 5rem 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--bg-card);
+        }
+
+        .invitadas-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .invitadas-header h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 0.8rem;
+        }
+
+        .invitadas-header p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .invitadas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .invitada-card {
+            text-align: center;
+        }
+
+        .invitada-avatar {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--bg);
+            letter-spacing: -2px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .rosa-gold {
+            background: linear-gradient(135deg, var(--rosa), var(--gold));
+        }
+
+        .gold-rosa {
+            background: linear-gradient(135deg, var(--gold), var(--rosa));
+        }
+
+        .invitada-avatar:hover {
+            border-color: var(--rosa);
+            box-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
+        }
+
+        .invitada-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .invitada-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+
+        .invitada-card .vertical {
+            font-size: 0.75rem;
+            color: var(--rosa);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Clientes */
+        .clientes {
+            background: var(--bg);
+            padding: 4rem 1.5rem;
+        }
+
+        .clientes h2 {
+            font-size: 1.2rem;
+            text-align: center;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2.5rem;
+        }
+
+        .clientes-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .cliente-logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        .cliente-logo:hover {
+            color: var(--rosa);
+        }
+
+        /* Urgencia */
+        .urgencia {
+            background: linear-gradient(135deg, var(--rosa), #c71585);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .urgencia p {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .urgencia .cta {
+            background: var(--bg);
+            color: var(--rosa);
+        }
+
+        .urgencia .cta:hover {
+            background: var(--text);
+            color: var(--bg);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-surface);
+            padding: 3rem 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--rosa);
+        }
+
+        .footer-lema {
+            font-size: 0.95rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-legal {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 2rem;
+        }
+
+        /* WhatsApp flotante */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-btn::before {
+            content: "";
+            display: block;
+            width: 32px;
+            height: 32px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .numeros-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .ofrecemos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .invitadas-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .invitada-avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 2rem;
+            }
+
+            .clientes-logos {
+                gap: 1.5rem;
+            }
+
+            .cliente-logo {
+                font-size: 1.1rem;
+            }
+
+            .whatsapp-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+
+            .whatsapp-btn::before {
+                width: 28px;
+                height: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>RIVELA</h1>
+        <p class="hero-mission">Que ninguna mujer brillante en tech pase desapercibida nunca más</p>
+        <p class="hero-voice">Me muevo entre la ciencia y los creadores. Unos porque cambian el mundo, los otros porque lo mueven.</p>
+        <p class="hero-buyer">La plataforma donde tu marca conecta con quien decide en HealthTech, Neurotech, Quantum, IA y Biotech.</p>
+        <a href="https://wa.me/34637424144?text=Hola%20Silvia%2C%20he%20visto%20Rivela%20en%20MWC%20y%20me%20interesa%20colaborar" class="cta">Hablemos</a>
+    </section>
+
+    <!-- Números -->
+    <section class="numeros">
+        <div class="numeros-header">
+            <h2>Tu marca, delante de quien decide</h2>
+        </div>
+        <div class="numeros-grid">
+            <div class="numero-item">
+                <strong>7M+</strong>
+                <span>Impactos para tu marca</span>
+            </div>
+            <div class="numero-item">
+                <strong>62%</strong>
+                <span>Audiencia C-Level</span>
+            </div>
+            <div class="numero-item">
+                <strong>40</strong>
+                <span>Países</span>
+            </div>
+            <div class="numero-item">
+                <strong>+40</strong>
+                <span>Empresas que confían</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qué ofrecemos -->
+    <section class="ofrecemos">
+        <h2>Cómo trabajamos juntas</h2>
+        <div class="ofrecemos-grid">
+            <div class="oferta-card">
+                <div class="oferta-icon">🎙️</div>
+                <h3>Episodio patrocinado</h3>
+                <p>Tu marca integrada en una historia real. Episodio completo + shorts + campaña social coordinada con el lanzamiento de tu producto o servicio.</p>
+            </div>
+            <div class="oferta-card">
+                <div class="oferta-icon">🎬</div>
+                <h3>Branded Content</h3>
+                <p>Shorts, clips y contenido a medida para tus canales. Del formato largo sacamos piezas que funcionan en LinkedIn, Instagram y YouTube para tu marca.</p>
+            </div>
+            <div class="oferta-card">
+                <div class="oferta-icon">🎤</div>
+                <h3>Eventos</h3>
+                <p>Mesas redondas, paneles y coberturas en los eventos que importan. Tu marca como anfitriona de conversaciones que generan impacto.</p>
+            </div>
+        </div>
+        <div class="ofrecemos-cta">
+            <a href="https://wa.me/34637424144?text=Hola%20Silvia%2C%20me%20interesa%20colaborar%20con%20Rivela" class="cta">Quiero estar</a>
+        </div>
+    </section>
+
+    <!-- Caso real -->
+    <section class="caso-real">
+        <h2>Caso real: primer patrocinio T3</h2>
+        <p class="caso-sub">Una marca invirtió 3.000€. Esto es lo que obtuvo.</p>
+        <div class="caso-grid">
+            <div class="caso-col caso-ads">
+                <h3>3.000€ en LinkedIn Ads</h3>
+                <ul>
+                    <li><strong>~70.000</strong> impresiones genéricas</li>
+                    <li><strong>1</strong> plataforma</li>
+                    <li><strong>0</strong> contenido propio</li>
+                    <li><strong>0</strong> credibilidad editorial</li>
+                </ul>
+            </div>
+            <div class="caso-col caso-rivela">
+                <h3>3.000€ con Rivela</h3>
+                <ul>
+                    <li><strong>591.000+</strong> impactos de marca</li>
+                    <li><strong>3</strong> plataformas</li>
+                    <li><strong>2.949</strong> decision-makers alcanzados</li>
+                    <li><strong>60%</strong> audiencia C-Level</li>
+                    <li><strong>15</strong> piezas de contenido reutilizable</li>
+                </ul>
+            </div>
+        </div>
+        <p class="caso-nota">Campaña en curso. Datos a 13 días de inicio.</p>
+    </section>
+
+    <!-- Invitadas -->
+    <section class="invitadas" id="invitadas">
+        <div class="invitadas-header">
+            <h2>Ellas eligieron Rivela</h2>
+            <p>Líderes de HealthTech, Neurotech, Quantum, IA y Biotech que contaron su historia sin filtros.</p>
+        </div>
+        <div class="invitadas-grid">
+            <div class="invitada-card">
+                <div class="invitada-avatar rosa-gold">CA</div>
+                <h3>Carolina Aguilar</h3>
+                <p>INBRAIN Neuroelectronics</p>
+                <span class="vertical">HealthTech</span>
+            </div>
+            <div class="invitada-card">
+                <div class="invitada-avatar gold-rosa">AO</div>
+                <h3>Ana Otero</h3>
+                <p>Hospital Clínic Barcelona</p>
+                <span class="vertical">HealthTech</span>
+            </div>
+            <div class="invitada-card">
+                <div class="invitada-avatar rosa-gold">MA</div>
+                <h3>María Artunduaga</h3>
+                <p>Samay</p>
+                <span class="vertical">MedTech</span>
+            </div>
+            <div class="invitada-card">
+                <div class="invitada-avatar gold-rosa">ME</div>
+                <h3>Marta Estarellas</h3>
+                <p>Qilimanjaro</p>
+                <span class="vertical">Quantum</span>
+            </div>
+            <div class="invitada-card">
+                <div class="invitada-avatar rosa-gold">AA</div>
+                <h3>Azine Azadi</h3>
+                <p>Cortical Labs</p>
+                <span class="vertical">Neurotech</span>
+            </div>
+            <div class="invitada-card">
+                <div class="invitada-avatar gold-rosa">SA</div>
+                <h3>Sandra Acosta</h3>
+                <p>OrganAID</p>
+                <span class="vertical">Biotech</span>
+            </div>
+            <div class="invitada-card">
+                <div class="invitada-avatar rosa-gold">AM</div>
+                <h3>Ariadna Masó</h3>
+                <p>SANNO</p>
+                <span class="vertical">HealthTech</span>
+            </div>
+            <div class="invitada-card">
+                <div class="invitada-avatar gold-rosa">NP</div>
+                <h3>Nuria Pastor</h3>
+                <p>Vitalera</p>
+                <span class="vertical">HealthTech</span>
+            </div>
+            <div class="invitada-card">
+                <div class="invitada-avatar rosa-gold">SO</div>
+                <h3>Selva Orejón</h3>
+                <p>onBRANDING</p>
+                <span class="vertical">Ciberseguridad</span>
+            </div>
+            <div class="invitada-card">
+                <div class="invitada-avatar gold-rosa">PH</div>
+                <h3>Paulina Herrera</h3>
+                <p>Se Regalan Dudas</p>
+                <span class="vertical">Creadores</span>
+            </div>
+            <div class="invitada-card">
+                <div class="invitada-avatar rosa-gold">AI</div>
+                <h3>Dr. Ana Iorga</h3>
+                <p>BIOBRAININ</p>
+                <span class="vertical">Neurotech</span>
+            </div>
+            <div class="invitada-card">
+                <div class="invitada-avatar gold-rosa">JG</div>
+                <h3>Judit Giró</h3>
+                <p>The Blue Box</p>
+                <span class="vertical">HealthTech</span>
+            </div>
+            <div class="invitada-card">
+                <div class="invitada-avatar rosa-gold">AS</div>
+                <h3>Alessandra Sala</h3>
+                <p>AI Research</p>
+                <span class="vertical">IA</span>
+            </div>
+            <div class="invitada-card">
+                <div class="invitada-avatar gold-rosa">MF</div>
+                <h3>Marissa Fayer</h3>
+                <p>Autora/Inversora</p>
+                <span class="vertical">Business</span>
+            </div>
+            <div class="invitada-card">
+                <div class="invitada-avatar rosa-gold">OI</div>
+                <h3>Olga Insua</h3>
+                <p>Ferrer</p>
+                <span class="vertical">Pharma</span>
+            </div>
+            <div class="invitada-card">
+                <div class="invitada-avatar gold-rosa">RV</div>
+                <h3>Rosa Viñas</h3>
+                <p>Grifols</p>
+                <span class="vertical">Pharma</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clientes -->
+    <section class="clientes">
+        <h2>Marcas que ya están aquí</h2>
+        <div class="clientes-logos">
+            <div class="cliente-logo">IBM</div>
+            <div class="cliente-logo">ISDIN</div>
+            <div class="cliente-logo">INBRAIN</div>
+            <div class="cliente-logo">Deeplook Medical</div>
+            <div class="cliente-logo">Clínic Barcelona</div>
+            <div class="cliente-logo">Ferrer</div>
+            <div class="cliente-logo">Red.es</div>
+            <div class="cliente-logo">OrganAID</div>
+            <div class="cliente-logo">Shutterstock</div>
+        </div>
+    </section>
+
+    <!-- Urgencia -->
+    <section class="urgencia">
+        <p>Temporada 3 en producción. Plazas limitadas.</p>
+        <a href="https://wa.me/34637424144?text=Hola%20Silvia%2C%20quiero%20saber%20m%C3%A1s%20sobre%20patrocinio%20en%20Temporada%203" class="cta">Reserva tu espacio</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem;">Silvia Rivela</p>
+        <div class="footer-links">
+            <a href="https://www.youtube.com/@rivela_" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://www.linkedin.com/in/silviarivela/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.instagram.com/rivela_universo/" target="_blank" rel="noopener">Instagram</a>
+            <a href="mailto:hello@do-we.es">Contacto</a>
+            <a href="tel:+34637424144">(+34) 637 424 144</a>
+        </div>
+        <p class="footer-lema">Inspírate con las historias de mujeres que se atreven y están cambiando el mundo</p>
+        <p class="footer-legal">© 2026 Rivela Salto al Futuro SL. RGPD 2016/679 + LOPDGDD 3/2018</p>
+    </footer>
+
+    <!-- WhatsApp flotante -->
+    <a href="https://wa.me/34637424144?text=Hola%20Silvia%2C%20he%20visto%20Rivela%20y%20me%20gustaría%20hablar%20contigo" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp"></a>
+
+</body>
+</html>

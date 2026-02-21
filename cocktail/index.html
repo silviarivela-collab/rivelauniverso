@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSVP | Rivela Cocktail MWC 2026</title>
+<link href="https://fonts.cdnfonts.com/css/moontime" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #0a0a1a; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+  .page { width: 100%; max-width: 520px; }
+  .card { background: linear-gradient(160deg, #0d0d24 0%, #1a0a30 40%, #0f1a3e 70%, #0a1a2e 100%); border-radius: 20px; overflow: hidden; border: 1px solid rgba(138, 43, 226, 0.25); box-shadow: 0 0 60px rgba(138, 43, 226, 0.12), 0 20px 40px rgba(0,0,0,0.4); }
+  .top-bar { height: 4px; background: linear-gradient(90deg, #7c4dff, #b388ff, #e040fb, #b388ff, #7c4dff); }
+  .header { padding: 36px 32px 20px; text-align: center; }
+  .eyebrow { color: #b388ff; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; margin-bottom: 16px; }
+  .title { font-family: 'Moontime', cursive; color: #fff; font-size: 56px; font-weight: 400; letter-spacing: 3px; margin-bottom: 4px; text-shadow: 0 0 7px #b388ff, 0 0 10px #b388ff, 0 0 21px #b388ff, 0 0 42px #7c4dff, 0 0 82px #7c4dff; }
+  .subtitle { color: #e040fb; font-size: 16px; font-weight: 300; font-style: italic; margin-bottom: 20px; }
+  .divider { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, #b388ff, transparent); margin: 0 auto 16px; }
+  .event-info { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 8px; }
+  .event-info span { color: #aaa; font-size: 13px; }
+  .event-info b { color: #ddd; }
+  .lang-switch { display: flex; justify-content: center; gap: 8px; margin: 16px 0 8px; }
+  .lang-btn { background: rgba(138, 43, 226, 0.1); border: 1px solid rgba(138, 43, 226, 0.25); color: #b388ff; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s; letter-spacing: 1px; }
+  .lang-btn.active { background: #7c4dff; color: white; border-color: #7c4dff; }
+  .lang-btn:hover { border-color: #b388ff; }
+  .form-section { padding: 8px 32px 36px; }
+  .form-intro { color: #888; font-size: 13px; text-align: center; margin-bottom: 24px; line-height: 1.6; }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; color: #b388ff; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 6px; }
+  .field input, .field select { width: 100%; background: rgba(138, 43, 226, 0.06); border: 1px solid rgba(138, 43, 226, 0.2); border-radius: 10px; padding: 12px 16px; color: #e0e0e0; font-size: 14px; font-family: inherit; outline: none; transition: border-color 0.3s; }
+  .field input:focus, .field select:focus { border-color: #b388ff; background: rgba(138, 43, 226, 0.1); }
+  .field input::placeholder { color: #555; }
+  .field select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23b388ff' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; cursor: pointer; }
+  .field select option { background: #1a1a2e; color: #e0e0e0; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .submit-btn { width: 100%; background: linear-gradient(135deg, #7c4dff, #e040fb); color: white; border: none; padding: 14px; border-radius: 30px; font-size: 16px; font-weight: 600; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(124, 77, 255, 0.3); margin-top: 8px; }
+  .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(124, 77, 255, 0.5); }
+  .submit-btn:active { transform: translateY(0); }
+  .footer { text-align: center; padding: 20px 32px 28px; }
+  .footer-divider { width: 100%; height: 1px; background: rgba(138, 43, 226, 0.12); margin-bottom: 16px; }
+  .footer-text { color: #555; font-size: 11px; line-height: 1.6; }
+  .footer-text a { color: #b388ff; text-decoration: none; }
+  .success-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 10, 26, 0.95); z-index: 100; justify-content: center; align-items: center; }
+  .success-card { text-align: center; padding: 48px 32px; }
+  .success-card .check { font-size: 56px; margin-bottom: 20px; }
+  .success-card h2 { font-family: 'Moontime', cursive; color: #fff; font-size: 48px; text-shadow: 0 0 7px #b388ff, 0 0 21px #7c4dff; margin-bottom: 16px; }
+  .success-card p { color: #b388ff; font-size: 15px; line-height: 1.6; }
+  @media (max-width: 480px) { .field-row { grid-template-columns: 1fr; } .header { padding: 28px 24px 16px; } .form-section { padding: 8px 24px 28px; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="card">
+    <div class="top-bar"></div>
+    <div class="header">
+      <div class="eyebrow">RSVP</div>
+      <div class="title">Rivela</div>
+      <div class="subtitle">Cocktail</div>
+      <div class="divider"></div>
+      <div class="event-info">
+        <span><b id="date-text">Lunes 2 de marzo</b> | 15:45h</span>
+        <span><b>VIP Lounge</b> | <span id="venue-text">Pabellón de España</span>, MWC Barcelona</span>
+      </div>
+      <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+
+    <form id="rsvpForm" action="https://formsubmit.co/silvia.rivela@do-we.es" method="POST">
+      <input type="hidden" name="_subject" value="RSVP Rivela Cocktail MWC 2026">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="">
+      <input type="text" name="_honey" style="display:none">
+
+      <div class="form-section">
+        <div class="form-intro" id="intro-text">Confirma tu asistencia al networking más cuántico del MWC. Cocktails, preguntas que rompen el hielo y conexiones que no se teletransportan.</div>
+
+        <div class="field">
+          <label id="label-name">Nombre completo</label>
+          <input type="text" name="nombre" id="input-name" placeholder="Tu nombre" required>
+        </div>
+
+        <div class="field">
+          <label>Email</label>
+          <input type="email" name="email" id="input-email" placeholder="tu@email.com" required>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label id="label-company">Empresa</label>
+            <input type="text" name="empresa" id="input-company" placeholder="Empresa" required>
+          </div>
+          <div class="field">
+            <label id="label-role">Cargo</label>
+            <input type="text" name="cargo" id="input-role" placeholder="Tu cargo">
+          </div>
+        </div>
+
+        <div class="field">
+          <label id="label-cocktail">Tu cocktail cuántico</label>
+          <select name="cocktail" id="select-cocktail" required>
+            <option value="" disabled selected id="opt-default">Elige tu cocktail...</option>
+            <option value="Superposición" id="opt-super">Superposición (puede ser gin tonic o negroni, hasta que lo pruebes es los dos)</option>
+            <option value="Entanglement" id="opt-entangle">Entanglement (dos sabores que no se separan)</option>
+            <option value="Tunneling" id="opt-tunnel">Tunneling (atraviesa barreras, fuerte)</option>
+            <option value="Colapso" id="opt-collapse">Colapso (lo que pasa cuando observas, suave y claro)</option>
+            <option value="Sorpréndeme" id="opt-surprise">Sorpréndeme</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label id="label-plus">¿Vienes con alguien?</label>
+          <select name="acompañante" id="select-plus">
+            <option value="No, voy sola/solo" id="opt-alone">No, voy sola/solo</option>
+            <option value="Sí, con 1 persona" id="opt-plus1">Sí, con 1 persona</option>
+            <option value="Sí, con 2 personas" id="opt-plus2">Sí, con 2 personas</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label id="label-notes">¿Algo que debamos saber? (alergias, sin alcohol, etc.)</label>
+          <input type="text" name="notas" id="input-notes" placeholder="Opcional">
+        </div>
+
+        <button type="submit" class="submit-btn" id="btn-submit">CONFIRMO, ALLÍ ESTARÉ</button>
+      </div>
+    </form>
+
+    <div class="footer">
+      <div class="footer-divider"></div>
+      <div class="footer-text">
+        <a href="https://www.youtube.com/@rivela_">Rivela</a> | Hosts: <a href="https://www.linkedin.com/in/silviarivela/">Silvia Rivela</a> &amp; Natalia Olson<br>
+        <span id="footer-lema">"Inspírate con las historias de mujeres que se atreven y están cambiando el mundo"</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const t = {
+  es: {
+    date: 'Lunes 2 de marzo', venue: 'Pabellón de España',
+    intro: 'Confirma tu asistencia al networking más cuántico del MWC. Cocktails, preguntas que rompen el hielo y conexiones que no se teletransportan.',
+    name: 'Nombre completo', namePh: 'Tu nombre', emailPh: 'tu@email.com',
+    company: 'Empresa', companyPh: 'Empresa', role: 'Cargo', rolePh: 'Tu cargo',
+    cocktail: 'Tu cocktail cuántico', chooseCocktail: 'Elige tu cocktail...',
+    super: 'Superposición (puede ser gin tonic o negroni, hasta que lo pruebes es los dos)',
+    entangle: 'Entanglement (dos sabores que no se separan)',
+    tunnel: 'Tunneling (atraviesa barreras, fuerte)',
+    collapse: 'Colapso (lo que pasa cuando observas, suave y claro)',
+    surprise: 'Sorpréndeme',
+    plus: '¿Vienes con alguien?', alone: 'No, voy sola/solo',
+    plus1: 'Sí, con 1 persona', plus2: 'Sí, con 2 personas',
+    notes: '¿Algo que debamos saber? (alergias, sin alcohol, etc.)', notesPh: 'Opcional',
+    submit: 'CONFIRMO, ALLÍ ESTARÉ',
+    lema: '"Inspírate con las historias de mujeres que se atreven y están cambiando el mundo"'
+  },
+  en: {
+    date: 'Monday, March 2nd', venue: 'Spain Pavilion',
+    intro: "Confirm your spot at MWC's most quantum networking event. Cocktails, icebreaker questions and connections that can't be teleported.",
+    name: 'Full name', namePh: 'Your name', emailPh: 'you@email.com',
+    company: 'Company', companyPh: 'Company', role: 'Role', rolePh: 'Your role',
+    cocktail: 'Your quantum cocktail', chooseCocktail: 'Choose your cocktail...',
+    super: 'Superposition (could be gin tonic or negroni, until you taste it, it\'s both)',
+    entangle: 'Entanglement (two flavors that can\'t be separated)',
+    tunnel: 'Tunneling (breaks through barriers, strong)',
+    collapse: 'Collapse (what happens when you observe, smooth and clear)',
+    surprise: 'Surprise me',
+    plus: 'Bringing someone?', alone: 'No, just me',
+    plus1: 'Yes, +1', plus2: 'Yes, +2',
+    notes: 'Anything we should know? (allergies, no alcohol, etc.)', notesPh: 'Optional',
+    submit: 'COUNT ME IN',
+    lema: '"Get inspired by the stories of women who dare and are changing the world"'
+  }
+};
+
+function setLang(lang) {
+  const d = t[lang];
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('date-text').textContent = d.date;
+  document.getElementById('venue-text').textContent = d.venue;
+  document.getElementById('intro-text').textContent = d.intro;
+  document.getElementById('label-name').textContent = d.name;
+  document.getElementById('input-name').placeholder = d.namePh;
+  document.getElementById('input-email').placeholder = d.emailPh;
+  document.getElementById('label-company').textContent = d.company;
+  document.getElementById('input-company').placeholder = d.companyPh;
+  document.getElementById('label-role').textContent = d.role;
+  document.getElementById('input-role').placeholder = d.rolePh;
+  document.getElementById('label-cocktail').textContent = d.cocktail;
+  document.getElementById('opt-default').textContent = d.chooseCocktail;
+  document.getElementById('opt-super').textContent = d.super;
+  document.getElementById('opt-entangle').textContent = d.entangle;
+  document.getElementById('opt-tunnel').textContent = d.tunnel;
+  document.getElementById('opt-collapse').textContent = d.collapse;
+  document.getElementById('opt-surprise').textContent = d.surprise;
+  document.getElementById('label-plus').textContent = d.plus;
+  document.getElementById('opt-alone').textContent = d.alone;
+  document.getElementById('opt-plus1').textContent = d.plus1;
+  document.getElementById('opt-plus2').textContent = d.plus2;
+  document.getElementById('label-notes').textContent = d.notes;
+  document.getElementById('input-notes').placeholder = d.notesPh;
+  document.getElementById('btn-submit').textContent = d.submit;
+  document.getElementById('footer-lema').textContent = d.lema;
+}
+</script>
+</body>
+</html>
