@@ -320,6 +320,41 @@
             margin: 0 auto;
         }
 
+        .filtros {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+        }
+
+        .filtro-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filtro-btn:hover {
+            border-color: var(--rosa);
+            color: var(--rosa);
+        }
+
+        .filtro-btn.active {
+            background: var(--rosa);
+            border-color: var(--rosa);
+            color: white;
+        }
+
+        .invitada-card.hidden {
+            display: none;
+        }
+
         .invitadas-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -328,6 +363,15 @@
 
         .invitada-card {
             text-align: center;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .invitada-card:hover {
+            transform: translateY(-4px);
         }
 
         .invitada-avatar {
@@ -656,103 +700,104 @@
             <h2>Ellas eligieron Rivela</h2>
             <p>Líderes de HealthTech, Neurotech, Quantum, IA y Biotech que contaron su historia sin filtros.</p>
         </div>
+        <div class="filtros">
+            <button class="filtro-btn active" onclick="filtrar('todas')">Todas</button>
+            <button class="filtro-btn" onclick="filtrar('HealthTech')">HealthTech</button>
+            <button class="filtro-btn" onclick="filtrar('Neurotech')">Neurotech</button>
+            <button class="filtro-btn" onclick="filtrar('Quantum')">Quantum</button>
+            <button class="filtro-btn" onclick="filtrar('Biotech')">Biotech</button>
+            <button class="filtro-btn" onclick="filtrar('IA')">IA</button>
+            <button class="filtro-btn" onclick="filtrar('MedTech')">MedTech</button>
+            <button class="filtro-btn" onclick="filtrar('Ciberseguridad')">Ciberseguridad</button>
+            <button class="filtro-btn" onclick="filtrar('Creadores')">Creadores</button>
+            <button class="filtro-btn" onclick="filtrar('Business')">Business</button>
+            <button class="filtro-btn" onclick="filtrar('Pharma')">Pharma</button>
+        </div>
         <div class="invitadas-grid">
-            <div class="invitada-card">
+            <a class="invitada-card" href="https://youtu.be/RuDXpaAH3iQ" target="_blank" rel="noopener" data-sector="HealthTech">
                 <div class="invitada-avatar rosa-gold">CA</div>
                 <h3>Carolina Aguilar</h3>
                 <p>INBRAIN Neuroelectronics</p>
                 <span class="vertical">HealthTech</span>
-            </div>
-            <div class="invitada-card">
+            </a>
+            <a class="invitada-card" href="https://youtu.be/a8nGLGezY8w" target="_blank" rel="noopener" data-sector="HealthTech">
                 <div class="invitada-avatar gold-rosa">AO</div>
                 <h3>Ana Otero</h3>
                 <p>Hospital Clínic Barcelona</p>
                 <span class="vertical">HealthTech</span>
-            </div>
-            <div class="invitada-card">
+            </a>
+            <a class="invitada-card" href="https://youtu.be/d90FVANiPQU" target="_blank" rel="noopener" data-sector="MedTech">
                 <div class="invitada-avatar rosa-gold">MA</div>
                 <h3>María Artunduaga</h3>
                 <p>Samay</p>
                 <span class="vertical">MedTech</span>
-            </div>
-            <div class="invitada-card">
+            </a>
+            <a class="invitada-card" href="https://youtu.be/3FjEtxRFKTg" target="_blank" rel="noopener" data-sector="Quantum">
                 <div class="invitada-avatar gold-rosa">ME</div>
                 <h3>Marta Estarellas</h3>
                 <p>Qilimanjaro</p>
                 <span class="vertical">Quantum</span>
-            </div>
-            <div class="invitada-card">
+            </a>
+            <a class="invitada-card" href="https://youtu.be/h2uPjLCvsQY" target="_blank" rel="noopener" data-sector="Neurotech">
                 <div class="invitada-avatar rosa-gold">AA</div>
                 <h3>Azine Azadi</h3>
                 <p>Cortical Labs</p>
                 <span class="vertical">Neurotech</span>
-            </div>
-            <div class="invitada-card">
+            </a>
+            <a class="invitada-card" href="https://youtu.be/Fa4soSLlD7M" target="_blank" rel="noopener" data-sector="Biotech">
                 <div class="invitada-avatar gold-rosa">SA</div>
                 <h3>Sandra Acosta</h3>
                 <p>OrganAID</p>
                 <span class="vertical">Biotech</span>
-            </div>
-            <div class="invitada-card">
+            </a>
+            <a class="invitada-card" href="https://youtu.be/RiKzVyf7XpQ" target="_blank" rel="noopener" data-sector="HealthTech">
                 <div class="invitada-avatar rosa-gold">AM</div>
                 <h3>Ariadna Masó</h3>
                 <p>SANNO</p>
                 <span class="vertical">HealthTech</span>
-            </div>
-            <div class="invitada-card">
+            </a>
+            <a class="invitada-card" href="https://youtu.be/rL8uEFBJo78" target="_blank" rel="noopener" data-sector="HealthTech">
                 <div class="invitada-avatar gold-rosa">NP</div>
                 <h3>Nuria Pastor</h3>
                 <p>Vitalera</p>
                 <span class="vertical">HealthTech</span>
-            </div>
-            <div class="invitada-card">
+            </a>
+            <a class="invitada-card" href="https://youtu.be/0unH0dXs8mE" target="_blank" rel="noopener" data-sector="Ciberseguridad">
                 <div class="invitada-avatar rosa-gold">SO</div>
                 <h3>Selva Orejón</h3>
                 <p>onBRANDING</p>
                 <span class="vertical">Ciberseguridad</span>
-            </div>
-            <div class="invitada-card">
+            </a>
+            <a class="invitada-card" href="https://youtu.be/Tnk3CPtJiOo" target="_blank" rel="noopener" data-sector="Creadores">
                 <div class="invitada-avatar gold-rosa">PH</div>
                 <h3>Paulina Herrera</h3>
                 <p>Se Regalan Dudas</p>
                 <span class="vertical">Creadores</span>
-            </div>
-            <div class="invitada-card">
-                <div class="invitada-avatar rosa-gold">AI</div>
-                <h3>Dr. Ana Iorga</h3>
-                <p>BIOBRAININ</p>
-                <span class="vertical">Neurotech</span>
-            </div>
-            <div class="invitada-card">
-                <div class="invitada-avatar gold-rosa">JG</div>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/q3V8-gidx_Y" target="_blank" rel="noopener" data-sector="HealthTech">
+                <div class="invitada-avatar rosa-gold">JG</div>
                 <h3>Judit Giró</h3>
                 <p>The Blue Box</p>
                 <span class="vertical">HealthTech</span>
-            </div>
-            <div class="invitada-card">
-                <div class="invitada-avatar rosa-gold">AS</div>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/piqk8iZ_6bA" target="_blank" rel="noopener" data-sector="IA">
+                <div class="invitada-avatar gold-rosa">AS</div>
                 <h3>Alessandra Sala</h3>
                 <p>AI Research</p>
                 <span class="vertical">IA</span>
-            </div>
-            <div class="invitada-card">
-                <div class="invitada-avatar gold-rosa">MF</div>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/DoJPhHPn8Ek" target="_blank" rel="noopener" data-sector="Business">
+                <div class="invitada-avatar rosa-gold">MF</div>
                 <h3>Marissa Fayer</h3>
                 <p>Autora/Inversora</p>
                 <span class="vertical">Business</span>
-            </div>
-            <div class="invitada-card">
-                <div class="invitada-avatar rosa-gold">OI</div>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/hXhB08Rt9yg" target="_blank" rel="noopener" data-sector="Pharma">
+                <div class="invitada-avatar gold-rosa">OI</div>
                 <h3>Olga Insua</h3>
                 <p>Ferrer</p>
                 <span class="vertical">Pharma</span>
-            </div>
-            <div class="invitada-card">
-                <div class="invitada-avatar gold-rosa">RV</div>
-                <h3>Rosa Viñas</h3>
-                <p>Grifols</p>
-                <span class="vertical">Pharma</span>
-            </div>
+            </a>
         </div>
     </section>
 
@@ -791,6 +836,20 @@
         <p class="footer-lema">Inspírate con las historias de mujeres que se atreven y están cambiando el mundo</p>
         <p class="footer-legal">© 2026 Rivela Salto al Futuro SL. RGPD 2016/679 + LOPDGDD 3/2018</p>
     </footer>
+
+    <script>
+    function filtrar(sector) {
+        document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
+        event.target.classList.add('active');
+        document.querySelectorAll('.invitada-card').forEach(card => {
+            if (sector === 'todas' || card.dataset.sector === sector) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+    </script>
 
     <!-- WhatsApp flotante -->
     <a href="https://wa.me/34637424144?text=Hola%20Silvia%2C%20he%20visto%20Rivela%20y%20me%20gustaría%20hablar%20contigo" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp"></a>
