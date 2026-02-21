@@ -45,6 +45,7 @@
             align-items: center;
             padding: 4rem 1.5rem;
             text-align: center;
+            background: radial-gradient(ellipse at center, rgba(255,20,147,0.08) 0%, transparent 70%);
         }
 
         .hero h1 {
@@ -113,7 +114,7 @@
 
         /* Números */
         .numeros {
-            background: var(--bg-card);
+            background: linear-gradient(135deg, #0a0a0a, #1a0520);
             padding: 4rem 1.5rem;
         }
 
@@ -138,6 +139,19 @@
             text-align: center;
         }
 
+        .numero-item {
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: rgba(255,20,147,0.03);
+            transition: all 0.3s ease;
+        }
+
+        .numero-item:hover {
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+        }
+
         .numero-item strong {
             display: block;
             font-size: clamp(2.5rem, 6vw, 4rem);
@@ -145,6 +159,7 @@
             color: var(--gold);
             line-height: 1;
             margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
         }
 
         .numero-item span {
@@ -176,16 +191,17 @@
         }
 
         .oferta-card {
-            background: var(--bg-card);
+            background: linear-gradient(135deg, #1a0a1a, #1a0520);
             padding: 2rem;
             border-radius: 12px;
-            border: 1px solid var(--border);
+            border: 1px solid var(--rosa);
+            box-shadow: 0 0 20px rgba(255, 20, 147, 0.1);
             transition: all 0.3s ease;
         }
 
         .oferta-card:hover {
-            border-color: var(--rosa);
-            box-shadow: 0 0 20px rgba(255, 20, 147, 0.2);
+            border-color: var(--gold);
+            box-shadow: 0 0 30px rgba(255, 20, 147, 0.25);
         }
 
         .oferta-icon {
@@ -299,7 +315,7 @@
             padding: 5rem 1.5rem;
             max-width: 1400px;
             margin: 0 auto;
-            background: var(--bg-card);
+            background: linear-gradient(180deg, #0a0a0a, #1a0a1a);
         }
 
         .invitadas-header {
@@ -367,11 +383,17 @@
             color: inherit;
             display: block;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #1a0a1a, #120818);
+            padding: 1.5rem 1rem;
+            border-radius: 12px;
+            border: 1px solid transparent;
         }
 
         .invitada-card:hover {
             transform: translateY(-4px);
+            border-color: var(--rosa);
+            box-shadow: 0 0 20px rgba(255, 20, 147, 0.15);
         }
 
         .invitada-avatar {
@@ -379,26 +401,13 @@
             height: 120px;
             margin: 0 auto 1rem;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--bg);
-            letter-spacing: -2px;
-            border: 2px solid transparent;
+            object-fit: cover;
+            border: 2px solid var(--border);
             transition: all 0.3s ease;
-        }
-
-        .rosa-gold {
             background: linear-gradient(135deg, var(--rosa), var(--gold));
         }
 
-        .gold-rosa {
-            background: linear-gradient(135deg, var(--gold), var(--rosa));
-        }
-
-        .invitada-avatar:hover {
+        .invitada-card:hover .invitada-avatar {
             border-color: var(--rosa);
             box-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
         }
@@ -425,7 +434,7 @@
 
         /* Clientes */
         .clientes {
-            background: var(--bg);
+            background: linear-gradient(135deg, #1a0a1a, #0a0a0a);
             padding: 4rem 1.5rem;
         }
 
@@ -452,11 +461,17 @@
             font-size: 1.3rem;
             font-weight: 700;
             color: var(--text-muted);
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: rgba(255,20,147,0.03);
         }
 
         .cliente-logo:hover {
             color: var(--rosa);
+            border-color: var(--rosa);
+            box-shadow: 0 0 15px rgba(255, 20, 147, 0.15);
         }
 
         /* Urgencia */
@@ -573,7 +588,6 @@
             .invitada-avatar {
                 width: 100px;
                 height: 100px;
-                font-size: 2rem;
             }
 
             .clientes-logos {
@@ -707,96 +721,208 @@
             <button class="filtro-btn" onclick="filtrar('Quantum')">Quantum</button>
             <button class="filtro-btn" onclick="filtrar('Biotech')">Biotech</button>
             <button class="filtro-btn" onclick="filtrar('IA')">IA</button>
+            <button class="filtro-btn" onclick="filtrar('VC')">VC</button>
             <button class="filtro-btn" onclick="filtrar('MedTech')">MedTech</button>
             <button class="filtro-btn" onclick="filtrar('Ciberseguridad')">Ciberseguridad</button>
             <button class="filtro-btn" onclick="filtrar('Creadores')">Creadores</button>
             <button class="filtro-btn" onclick="filtrar('Business')">Business</button>
             <button class="filtro-btn" onclick="filtrar('Pharma')">Pharma</button>
+            <button class="filtro-btn" onclick="filtrar('DeepTech')">DeepTech</button>
+            <button class="filtro-btn" onclick="filtrar('Industria')">Industria</button>
+            <button class="filtro-btn" onclick="filtrar('Energía')">Energía</button>
         </div>
         <div class="invitadas-grid">
-            <a class="invitada-card" href="https://youtu.be/RuDXpaAH3iQ" target="_blank" rel="noopener" data-sector="HealthTech">
-                <div class="invitada-avatar rosa-gold">CA</div>
+            <a class="invitada-card" href="https://youtu.be/RuDXpaAH3iQ" target="_blank" rel="noopener" data-sector="Neurotech">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/RuDXpaAH3iQ/hqdefault.jpg" alt="Carolina Aguilar" loading="lazy">
                 <h3>Carolina Aguilar</h3>
                 <p>INBRAIN Neuroelectronics</p>
-                <span class="vertical">HealthTech</span>
+                <span class="vertical">Neurotech</span>
             </a>
             <a class="invitada-card" href="https://youtu.be/a8nGLGezY8w" target="_blank" rel="noopener" data-sector="HealthTech">
-                <div class="invitada-avatar gold-rosa">AO</div>
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/a8nGLGezY8w/hqdefault.jpg" alt="Ana Otero" loading="lazy">
                 <h3>Ana Otero</h3>
                 <p>Hospital Clínic Barcelona</p>
                 <span class="vertical">HealthTech</span>
             </a>
             <a class="invitada-card" href="https://youtu.be/d90FVANiPQU" target="_blank" rel="noopener" data-sector="MedTech">
-                <div class="invitada-avatar rosa-gold">MA</div>
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/d90FVANiPQU/hqdefault.jpg" alt="María Artunduaga" loading="lazy">
                 <h3>María Artunduaga</h3>
                 <p>Samay</p>
                 <span class="vertical">MedTech</span>
             </a>
-            <a class="invitada-card" href="https://youtu.be/3FjEtxRFKTg" target="_blank" rel="noopener" data-sector="Quantum">
-                <div class="invitada-avatar gold-rosa">ME</div>
+            <a class="invitada-card" href="https://youtu.be/EViWeOBt3rs" target="_blank" rel="noopener" data-sector="Quantum">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/EViWeOBt3rs/hqdefault.jpg" alt="Marta Estarellas" loading="lazy">
                 <h3>Marta Estarellas</h3>
                 <p>Qilimanjaro</p>
                 <span class="vertical">Quantum</span>
             </a>
             <a class="invitada-card" href="https://youtu.be/h2uPjLCvsQY" target="_blank" rel="noopener" data-sector="Neurotech">
-                <div class="invitada-avatar rosa-gold">AA</div>
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/h2uPjLCvsQY/hqdefault.jpg" alt="Azine Azadi" loading="lazy">
                 <h3>Azine Azadi</h3>
                 <p>Cortical Labs</p>
                 <span class="vertical">Neurotech</span>
             </a>
             <a class="invitada-card" href="https://youtu.be/Fa4soSLlD7M" target="_blank" rel="noopener" data-sector="Biotech">
-                <div class="invitada-avatar gold-rosa">SA</div>
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/Fa4soSLlD7M/hqdefault.jpg" alt="Sandra Acosta" loading="lazy">
                 <h3>Sandra Acosta</h3>
                 <p>OrganAID</p>
                 <span class="vertical">Biotech</span>
             </a>
             <a class="invitada-card" href="https://youtu.be/RiKzVyf7XpQ" target="_blank" rel="noopener" data-sector="HealthTech">
-                <div class="invitada-avatar rosa-gold">AM</div>
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/RiKzVyf7XpQ/hqdefault.jpg" alt="Ariadna Masó" loading="lazy">
                 <h3>Ariadna Masó</h3>
                 <p>SANNO</p>
                 <span class="vertical">HealthTech</span>
             </a>
             <a class="invitada-card" href="https://youtu.be/rL8uEFBJo78" target="_blank" rel="noopener" data-sector="HealthTech">
-                <div class="invitada-avatar gold-rosa">NP</div>
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/rL8uEFBJo78/hqdefault.jpg" alt="Nuria Pastor" loading="lazy">
                 <h3>Nuria Pastor</h3>
                 <p>Vitalera</p>
                 <span class="vertical">HealthTech</span>
             </a>
             <a class="invitada-card" href="https://youtu.be/0unH0dXs8mE" target="_blank" rel="noopener" data-sector="Ciberseguridad">
-                <div class="invitada-avatar rosa-gold">SO</div>
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/0unH0dXs8mE/hqdefault.jpg" alt="Selva Orejón" loading="lazy">
                 <h3>Selva Orejón</h3>
                 <p>onBRANDING</p>
                 <span class="vertical">Ciberseguridad</span>
             </a>
-            <a class="invitada-card" href="https://youtu.be/Tnk3CPtJiOo" target="_blank" rel="noopener" data-sector="Creadores">
-                <div class="invitada-avatar gold-rosa">PH</div>
+            <a class="invitada-card" href="https://youtu.be/sRclDC133B4" target="_blank" rel="noopener" data-sector="Creadores">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/sRclDC133B4/hqdefault.jpg" alt="Paulina Herrera" loading="lazy">
                 <h3>Paulina Herrera</h3>
                 <p>Se Regalan Dudas</p>
                 <span class="vertical">Creadores</span>
             </a>
             <a class="invitada-card" href="https://youtu.be/q3V8-gidx_Y" target="_blank" rel="noopener" data-sector="HealthTech">
-                <div class="invitada-avatar rosa-gold">JG</div>
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/q3V8-gidx_Y/hqdefault.jpg" alt="Judit Giró" loading="lazy">
                 <h3>Judit Giró</h3>
                 <p>The Blue Box</p>
                 <span class="vertical">HealthTech</span>
             </a>
             <a class="invitada-card" href="https://youtu.be/piqk8iZ_6bA" target="_blank" rel="noopener" data-sector="IA">
-                <div class="invitada-avatar gold-rosa">AS</div>
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/piqk8iZ_6bA/hqdefault.jpg" alt="Alessandra Sala" loading="lazy">
                 <h3>Alessandra Sala</h3>
                 <p>AI Research</p>
                 <span class="vertical">IA</span>
             </a>
-            <a class="invitada-card" href="https://youtu.be/DoJPhHPn8Ek" target="_blank" rel="noopener" data-sector="Business">
-                <div class="invitada-avatar rosa-gold">MF</div>
+            <a class="invitada-card" href="https://youtu.be/DoJPhHPn8Ek" target="_blank" rel="noopener" data-sector="VC">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/DoJPhHPn8Ek/hqdefault.jpg" alt="Marissa Fayer" loading="lazy">
                 <h3>Marissa Fayer</h3>
                 <p>Autora/Inversora</p>
-                <span class="vertical">Business</span>
+                <span class="vertical">VC</span>
             </a>
             <a class="invitada-card" href="https://youtu.be/hXhB08Rt9yg" target="_blank" rel="noopener" data-sector="Pharma">
-                <div class="invitada-avatar gold-rosa">OI</div>
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/hXhB08Rt9yg/hqdefault.jpg" alt="Olga Insua" loading="lazy">
                 <h3>Olga Insua</h3>
                 <p>Ferrer</p>
                 <span class="vertical">Pharma</span>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/ocB98Hkpz5A" target="_blank" rel="noopener" data-sector="Creadores">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/ocB98Hkpz5A/hqdefault.jpg" alt="Chisme Corporativo" loading="lazy">
+                <h3>Chisme Corporativo</h3>
+                <p>Macariva + Rosalaura</p>
+                <span class="vertical">Creadores</span>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/bV_-4mQG8ds" target="_blank" rel="noopener" data-sector="Quantum">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/bV_-4mQG8ds/hqdefault.jpg" alt="Sahar Ben Rached" loading="lazy">
+                <h3>Sahar Ben Rached</h3>
+                <p>Quantum Computing</p>
+                <span class="vertical">Quantum</span>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/h3dB-skZYhE" target="_blank" rel="noopener" data-sector="VC">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/h3dB-skZYhE/hqdefault.jpg" alt="Isabelle Gallo" loading="lazy">
+                <h3>Isabelle Gallo</h3>
+                <p>Venture Capital</p>
+                <span class="vertical">VC</span>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/wM1P6eCE_v0" target="_blank" rel="noopener" data-sector="IA">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/wM1P6eCE_v0/hqdefault.jpg" alt="Georgia Taglietti" loading="lazy">
+                <h3>Georgia Taglietti</h3>
+                <p>The ICNAC</p>
+                <span class="vertical">IA</span>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/KPgePr5DMqU" target="_blank" rel="noopener" data-sector="IA">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/KPgePr5DMqU/hqdefault.jpg" alt="Ari Font" loading="lazy">
+                <h3>Ari Font</h3>
+                <p>Twitter / IA Responsable</p>
+                <span class="vertical">IA</span>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/Wwh34sWk20k" target="_blank" rel="noopener" data-sector="VC">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/Wwh34sWk20k/hqdefault.jpg" alt="Hale Yildiz" loading="lazy">
+                <h3>Hale Yildiz</h3>
+                <p>VC / MENA</p>
+                <span class="vertical">VC</span>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/29GzVNjWQIQ" target="_blank" rel="noopener" data-sector="Business">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/29GzVNjWQIQ/hqdefault.jpg" alt="Laura Jones" loading="lazy">
+                <h3>Laura Jones</h3>
+                <p>Tech Leadership</p>
+                <span class="vertical">Business</span>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/zdlzNUCgwwA" target="_blank" rel="noopener" data-sector="VC">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/zdlzNUCgwwA/hqdefault.jpg" alt="Alice Segre" loading="lazy">
+                <h3>Alice Segre</h3>
+                <p>Venture Capital</p>
+                <span class="vertical">VC</span>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/4--6uv10fi4" target="_blank" rel="noopener" data-sector="HealthTech">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/4--6uv10fi4/hqdefault.jpg" alt="Diana Ballart" loading="lazy">
+                <h3>Diana Ballart</h3>
+                <p>The Smart Lollipop</p>
+                <span class="vertical">HealthTech</span>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/10MRThcKWbQ" target="_blank" rel="noopener" data-sector="Business">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/10MRThcKWbQ/hqdefault.jpg" alt="Marta Valles" loading="lazy">
+                <h3>Marta Valles</h3>
+                <p>Web3 / Blockchain</p>
+                <span class="vertical">Business</span>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/sMG6aFMgoo8" target="_blank" rel="noopener" data-sector="IA">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/sMG6aFMgoo8/hqdefault.jpg" alt="Micaela Mantegna" loading="lazy">
+                <h3>Micaela Mantegna</h3>
+                <p>IA / Neuroderechos</p>
+                <span class="vertical">IA</span>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/pfnh-6sk0os" target="_blank" rel="noopener" data-sector="IA">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/pfnh-6sk0os/hqdefault.jpg" alt="Simone Ross" loading="lazy">
+                <h3>Simone Ross</h3>
+                <p>TED</p>
+                <span class="vertical">IA</span>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/q2m2zpY6ymU" target="_blank" rel="noopener" data-sector="Industria">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/q2m2zpY6ymU/hqdefault.jpg" alt="Martina Font" loading="lazy">
+                <h3>Martina Font</h3>
+                <p>Font Packaging</p>
+                <span class="vertical">Industria</span>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/aXaI_hCT1uA" target="_blank" rel="noopener" data-sector="DeepTech">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/aXaI_hCT1uA/hqdefault.jpg" alt="Marta Bernardino" loading="lazy">
+                <h3>Marta Bernardino</h3>
+                <p>Robótica</p>
+                <span class="vertical">DeepTech</span>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/Air-156GTMU" target="_blank" rel="noopener" data-sector="Energía">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/Air-156GTMU/hqdefault.jpg" alt="Cristina Corchero" loading="lazy">
+                <h3>Cristina Corchero</h3>
+                <p>Energía</p>
+                <span class="vertical">Energía</span>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/KrYMa4nf5rU" target="_blank" rel="noopener" data-sector="Business">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/KrYMa4nf5rU/hqdefault.jpg" alt="Mar Dominguez" loading="lazy">
+                <h3>Mar Dominguez</h3>
+                <p>Marketing Digital</p>
+                <span class="vertical">Business</span>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/mXKqa_pTcN8" target="_blank" rel="noopener" data-sector="IA">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/mXKqa_pTcN8/hqdefault.jpg" alt="Isabelita Virtual" loading="lazy">
+                <h3>Isabelita Virtual</h3>
+                <p>IA + Arte Digital</p>
+                <span class="vertical">IA</span>
+            </a>
+            <a class="invitada-card" href="https://youtu.be/mVEJ7_ZUjQM" target="_blank" rel="noopener" data-sector="IA">
+                <img class="invitada-avatar" src="https://i.ytimg.com/vi/mVEJ7_ZUjQM/hqdefault.jpg" alt="Marta Handenawer" loading="lazy">
+                <h3>Marta Handenawer</h3>
+                <p>Domestic Data Streamers</p>
+                <span class="vertical">IA</span>
             </a>
         </div>
     </section>
