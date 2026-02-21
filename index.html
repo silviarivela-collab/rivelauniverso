@@ -233,7 +233,7 @@
 
         .caso-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             margin-bottom: 1.5rem;
         }
@@ -242,11 +242,23 @@
             padding: 2rem 1.5rem;
             border-radius: 12px;
             text-align: left;
+            background: linear-gradient(135deg, #1a0a1a, #1a0520);
+            border: 1px solid var(--rosa);
+            box-shadow: 0 0 30px rgba(255, 20, 147, 0.15);
         }
 
         .caso-col h3 {
             font-size: 1.1rem;
             font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--rosa);
+        }
+
+        .caso-col .caso-tipo {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 1.2rem;
         }
 
@@ -263,45 +275,17 @@
         }
 
         .caso-col li strong {
-            color: var(--text);
+            color: var(--gold);
             font-weight: 800;
         }
 
-        .caso-ads {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
+        .caso-col:first-child {
+            border-color: var(--gold);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
         }
 
-        .caso-ads h3 {
-            color: var(--text-muted);
-        }
-
-        .caso-rivela {
-            background: linear-gradient(135deg, #1a0a1a, #1a0520);
-            border: 1px solid var(--rosa);
-            box-shadow: 0 0 30px rgba(255, 20, 147, 0.15);
-        }
-
-        .caso-rivela h3 {
-            color: var(--rosa);
-        }
-
-        .caso-rivela li strong {
+        .caso-col:first-child h3 {
             color: var(--gold);
-        }
-
-        .caso-roas {
-            margin-top: 1.5rem;
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--gold);
-            text-align: center;
-        }
-
-        .caso-nota {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            font-style: italic;
         }
 
         @media (max-width: 768px) {
@@ -631,32 +615,40 @@
         </div>
     </section>
 
-    <!-- Caso real -->
+    <!-- Casos reales -->
     <section class="caso-real">
-        <h2>Caso real: primer patrocinio T3</h2>
-        <p class="caso-sub">Una marca invirtió 3.000€. Esto es lo que obtuvo.</p>
+        <h2>Casos reales</h2>
+        <p class="caso-sub">Esto es lo que consiguen las marcas que eligen Rivela.</p>
         <div class="caso-grid">
-            <div class="caso-col caso-ads">
-                <h3>3.000€ en LinkedIn Ads</h3>
+            <div class="caso-col">
+                <h3>8.000€</h3>
+                <div class="caso-tipo">Patrocinio T3</div>
                 <ul>
-                    <li><strong>~70.000</strong> impresiones genéricas</li>
-                    <li><strong>1</strong> plataforma</li>
-                    <li><strong>0</strong> contenido propio</li>
-                    <li><strong>0</strong> credibilidad editorial</li>
+                    <li><strong>2M</strong> impactos de marca</li>
+                    <li><strong>3</strong> plataformas</li>
+                    <li><strong>48%</strong> audiencia C-Level</li>
+                    <li><strong>20</strong> piezas de contenido</li>
                 </ul>
             </div>
-            <div class="caso-col caso-rivela">
-                <h3>3.000€ con Rivela</h3>
+            <div class="caso-col">
+                <h3>5.000€</h3>
+                <div class="caso-tipo">Patrocinio T3</div>
                 <ul>
-                    <li><strong>591.000+</strong> impactos de marca</li>
+                    <li><strong>700.000+</strong> impactos de marca</li>
+                </ul>
+            </div>
+            <div class="caso-col">
+                <h3>Promoción</h3>
+                <div class="caso-tipo">Temporada 2</div>
+                <ul>
+                    <li><strong>400.000+</strong> impactos de marca</li>
                     <li><strong>3</strong> plataformas</li>
-                    <li><strong>2.949</strong> decision-makers alcanzados</li>
-                    <li><strong>60%</strong> audiencia C-Level</li>
-                    <li><strong>15</strong> piezas de contenido reutilizable</li>
+                    <li><strong>5</strong> decks logrados</li>
+                    <li><strong>59%</strong> audiencia C-Level</li>
+                    <li><strong>1</strong> pieza de contenido</li>
                 </ul>
             </div>
         </div>
-        <p class="caso-nota">Campaña en curso. Datos a 13 días de inicio.</p>
     </section>
 
     <!-- Invitadas -->
